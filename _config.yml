@@ -1,7 +1,7 @@
 # Site
-title:              danal92
+title:              people92
 bio:                'Server developer'
-description:        "Moon is a minimal, one column jekyll theme for your blog."
+description:        "If you don't know where you are going, just go."
 reading_time:       true
 words_per_minute:   200
 logo:               'assets/img/emotion.jpeg'
@@ -40,11 +40,11 @@ disqus_shortname:   taylantatli
 #email:
 #twitter:            username
 facebook:           username
-github-url:         username
+github-url:         people92
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin:          username
 #xing:              username
-instagram:          username
+instagram:          iampeople92
 #lastfm:            username
 #tumblr:            username
 #medium:            '@username'
