@@ -122,7 +122,177 @@ XPath xPath = XPathFactory.newInstance().newXPath();
 
 
 ### 4. XML 생성 예제
-추가 예정
+JAXB(Java Architecture for XML Binding) API를 이용해 XML을 생성해보려고 한다.  
+&#8251; JAXB : 자바 오브젝트를 XML로 변환하는 마샬링(Marshalling)을 가능하도록 하는 Java API  
+
+
+
+- 어노테이션 참고   
+@XmlRootElement(name = "XmlParent") : XML 특정 노드의 루트라는 의미, name 사용하여 명시 가능  
+@XmlAccessorType(XmlAccessType.NONE) : @XmlElment 어노테이션으로 된 필드와 프로퍼티만 추출  
+@XmlAccessorType(XmlAccessType.FIELD) : 모든 필드 추출  
+@XmlAccessorType(XmlAccessType.PROPERTY) : 모든 프로퍼티 추출  
+@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER) : public 필드와 프로퍼티 추출  
+@XmlElement(name = "XmlHeader") : XML 노드라는 의미, name 사용하여 명시 가능  
+
+
+1. XML 생성을 위한 객체 생성 : XmlParent > XmlHeader, XmlBody
+``` java
+package com.server.people.xml.create;
+
+import lombok.*;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "XmlParent")
+@XmlAccessorType(XmlAccessType.FIELD)
+@AllArgsConstructor
+@Builder
+@NoArgsConstructor
+@Getter
+@Setter
+public class XmlParent {
+
+    @XmlElement(name = "XmlHeader")
+    private XmlHeader xmlHeader;
+
+    @XmlElement(name = "XmlBody")
+    private XmlBody xmlBody;
+
+
+}
+```
+``` java
+package com.server.people.xml.create;
+
+import lombok.*;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "XmlHeader")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class XmlHeader {
+
+    @XmlElement(name = "sender")
+    private String sender;
+
+    @XmlElement(name = "receiver")
+    private String receiver;
+
+    @XmlElement(name = "mainId")
+    private String mainId;
+
+```
+
+``` java
+package com.server.people.xml.create;
+
+import lombok.*;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "XmlBody")
+@XmlAccessorType(XmlAccessType.FIELD)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class XmlBody {
+
+    @XmlElement(name = "code")
+    private String code;
+
+    @XmlElement(name = "message")
+    private String message;
+
+    @XmlElement(name = "sendDate")
+    private String sendDate;
+}
+
+```
+
+2. JAXB를 이용해 생성한 객체 마샬링
+
+``` java
+    public static String toXml(Object obj) throws Exception {
+
+        JAXBContext jc = JAXBContext.newInstance(obj.getClass());
+
+        Marshaller marshaller = jc.createMarshaller();
+
+        marshaller.setProperty(Marshaller.JAXB_ENCODING, "utf-8");
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
+
+        StringWriter writer = new StringWriter();
+
+        marshaller.marshal(obj, writer);
+
+        return writer.toString();
+    }
+```
+
+`테스트 코드`
+``` java
+package com.server.people.xml.parsing;
+
+import com.server.people.xml.create.XmlBody;
+import com.server.people.xml.create.XmlHeader;
+import com.server.people.xml.create.XmlParent;
+import com.server.people.xml.parsing.util.XmlUtils;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class XmlUtilsTest {
+
+    @Test
+    void xmlUtilsToXmlTest() throws Exception{
+
+        XmlHeader xmlHeader = XmlHeader.builder().mainId("TEST1").receiver("re").sender("se").build();
+        XmlBody xmlBody = XmlBody.builder().code("t1").message("TEST").build();
+
+        XmlParent xmlParent = XmlParent.builder().xmlBody(xmlBody).xmlHeader(xmlHeader).build();
+
+        System.out.println(XmlUtils.toXml(xmlParent));
+    }
+}
+
+```
+
+`결과 콘솔`  
+원하는 트리구조로 xml 생성
+```
+<XmlParent>
+    <XmlHeader>
+        <sender>se</sender>
+        <receiver>re</receiver>
+        <mainId>TEST1</mainId>
+    </XmlHeader>
+    <XmlBody>
+        <code>t1</code>
+        <message>TEST</message>
+    </XmlBody>
+</XmlParent>
+```
+
+참고소스 : https://github.com/people92/xml
+
 
 ___
 
