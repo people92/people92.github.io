@@ -137,6 +137,8 @@ JAXB(Java Architecture for XML Binding) API를 이용해 XML을 생성해보려�
 
 
 1. XML 생성을 위한 객체 생성 : XmlParent > XmlHeader, XmlBody
+
+
 ``` java
 package com.server.people.xml.create;
 
@@ -165,6 +167,8 @@ public class XmlParent {
 
 }
 ```
+
+
 ``` java
 package com.server.people.xml.create;
 
@@ -192,8 +196,9 @@ public class XmlHeader {
 
     @XmlElement(name = "mainId")
     private String mainId;
-
+}
 ```
+
 
 ``` java
 package com.server.people.xml.create;
