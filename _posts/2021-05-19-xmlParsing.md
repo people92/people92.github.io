@@ -296,6 +296,57 @@ public class XmlUtilsTest {
 </XmlParent>
 ```
 
+
+___
+
+
+
+### 추가. xml to json 변환
+
+maven dependency 추가
+``` xml
+<dependency>
+  <groupId>org.json</groupId>
+  <artifactId>json</artifactId>
+  <version>20180813</version>
+</dependency>
+```
+
+org.json 패키지에 있는 JSONObject와 XML 사용하여 변환
+``` java
+    public static String toJson(String xml) throws Exception {
+
+        JSONObject jsonObject = XML.toJSONObject(xml);
+
+        return jsonObject.toString();
+        
+    }
+```
+
+빌드하려고 하니 Found multiple occurrences of org.json.JSONObject 해당 에러가 발생하여 진행되지 않았다.  
+로컬 레퍼지토리 .m2에 같은 이름의 클래스가 중복되어서 존재하여서 발생.  
+-> 사용하지 않는 디팬던시 exclusion 제외하니깐 정상 작동
+
+``` xml
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+```
+
+`테스트 결과 콘솔` 
+```
+{"XmlParent":{"XmlHeader":{"receiver":"re","sender":"se","mainId":"TEST1"},"XmlBody":{"code":"t1","message":"TEST"}}}
+
+```
+
 참고소스 : https://github.com/people92/xml
 
 
