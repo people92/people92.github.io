@@ -12,7 +12,6 @@ ___
 FeignClient 사용시 Timeout이 종종 발생하는 경우가 있었는데   
 이러한 케이스 처리를 위해 Feign Fallback에 대해 알아보고 적용해보려고 한다.  
 
-
 ___
 
 ## __상세__
@@ -20,6 +19,10 @@ ___
 ### 1. Hystrix란?
 Hystrix란?  
 netflix에서 만든 라이브러리로 마이크로 서비스 아키텍처에서 분산된 서비스간 통신이 원활하지 않은 경우에 각 서비스가 장애 내성과 지연 내성을 갖게하도록 도와주는 라이브러리다.  
+
+Hystrix란?
+spring-cloud의 서비스 중 하나. Circuit Breaker Pattern을 사용. API 서버가 장애 발생 등의 이유로 일정 시간(Time window) 내에 여러번 오류 응답을 주는 경우(timeout, bad gateway 등)  
+해당 API 서버로 요청을 보내지 않고 잠시 동안 대체(fallback) method를 실행. 일정 시간이 지나서 다시 뒷단 API 서버를 호출하는 등의, 일련의 작업을 제공해준다.
 
 fallback이란?  
 실패에 대한 후처리를 위해 작업이다.  
@@ -49,7 +52,8 @@ feign:
         readTimeout: 1
 ```
 
-3. FeignClient interface를 생성
+3. FeignClient interface를 생성  
+
 ``` java
 @FeignClient(name = "kakao-open-api",
         url = "https://dapi.kakao.com",
@@ -63,7 +67,8 @@ public interface KakaoOpenApiClient {
 ```
 
 4. Fallback 처리를 위해 생성한 FeignClient를 implements하여 Fallback class 생성하고 에러 발생 시 리턴 할 값 설정  
-- Fallback 처리 시 빈 리스트가 리턴되도록 생성
+- Fallback 처리 시 빈 리스트가 리턴되도록 생성  
+
 ``` java
 package com.study.springcloud;
 
@@ -80,6 +85,7 @@ public class KakaoOpenApiClientFallback implements KakaoOpenApiClient {
 ```
 
 5. FeignClient의 fallback 속성 값에 생성한 Fallback 클래스 설정  
+
 ``` java
 @FeignClient(name = "kakao-open-api",
         url = "https://dapi.kakao.com",
@@ -152,11 +158,11 @@ public interface KakaoOpenApiClient {
 - 기존 Spring boot version : 2.4.5, spring cloud version : 2020.0.0  
 - 변경 Spring boot version 2.3.3.RELEASE, spring cloud version : Hoxton.SR11
 
-
-
 2. Fallback은 정상작동 하는데 FallbackFactory를 구현하면 아래 메세지와 같은 에러 발생  
+
 ```
-Incompatible fallback instance. Fallback/fallbackFactory of type class com.study.springcloud.KakaoOpenApiClientFallbackFactory is not assignable to interface com.study.springcloud.KakaoOpenApiClient for feign client kakao-open-api
+Incompatible fallback instance. 
+Fallback/fallbackFactory of type class com.study.springcloud.KakaoOpenApiClientFallbackFactory is not assignable to interface com.study.springcloud.KakaoOpenApiClient for feign client kakao-open-api
 ```
 
 [해결방법] : import를 다른 FallbackFactory를 함.  
