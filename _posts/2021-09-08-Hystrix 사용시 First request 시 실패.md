@@ -14,6 +14,9 @@ htstrix default 요청에 대한 timeout 설정이 작아서 그렇다고 한다
 ```
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds # 요청에 대한 Time Out 설정
 ```
+이 설정은 Hystrix 가 적용된 메서드의 타임아웃을 지정한다.  
+따라서 보통 feign read timeout과 connect timeout 지정한 초를 포함하여 여유있게 설정하는 것이 좋다.
+
 
 ``` yml
 hystrix:
@@ -28,3 +31,4 @@ hystrix:
 ## __참고__
 
 https://stackoverflow.com/questions/39602627/spring-cloud-feign-hytrix-first-call-timeout   
+https://github.com/Netflix/Hystrix/wiki/Configuration#executionisolationthreadtimeoutinmilliseconds  
