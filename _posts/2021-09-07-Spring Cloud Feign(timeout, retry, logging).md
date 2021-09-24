@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "Spring Cloud Feign 추가 (timeout, retry, logging)"
+date:   2021-09-07
+excerpt: "Spring Cloud Feign 추가 (timeout, retry, logging)"
+tag:
+- markdown 
+comments: true
+---
+
 # Spring Cloud Feign 추가 (timeout, retry, logging)
 
 1. Feign client Timeout 설정 방법  
