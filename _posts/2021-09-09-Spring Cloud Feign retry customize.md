@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "Spring Cloud Feign retry customize"
+date:   2021-09-09
+excerpt: "Spring Cloud Feign retry customize"
+tag:
+- markdown 
+comments: false
+---
+
 # Spring Cloud Feign retry customize
 
 기본적으로 Spring Cloud Feign retry 대상은 IO Exception이다.  
