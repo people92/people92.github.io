@@ -1,8 +1,20 @@
+---
+layout: post
+title:  "Spring Bean Injection + Factory Method Design Patternd"
+date:   2021-06-26
+excerpt: "Spring Bean Injection + Factory Method Design Pattern"
+tag:
+- markdown 
+comments: true
+---
+
 # Spring Bean Injection + Factory Method Design Pattern
 
 ## 목차
 1. 팩토리 메소드 디자인 패턴 정의
 2. 팩토리 메소드 디자인 패턴을 이용해 동적으로 빈 주입 예제
+
+
 ___
 
 ## __개요__
