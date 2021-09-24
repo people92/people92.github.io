@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "Linux Command"
+date:   2021-07-11
+excerpt: "자주 쓰는 Linux Command 정리"
+tag:
+- markdown 
+comments: true
+---
+
 # Linux Command
 
 ## 목차
