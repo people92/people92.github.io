@@ -1,9 +1,20 @@
-# Hystrix 사용시 First request 시 실패
+---
+layout: post
+title:  "Hystrix 사용시 request 실패"
+date:   2021-09-08
+excerpt: "Hystrix 사용시 request 실패"
+tag:
+- markdown 
+comments: false
+---
+
+
+# Hystrix 사용시 request 실패
 
 <img src = "https://user-images.githubusercontent.com/28687900/132426330-0c9800a4-0ab6-456d-8de7-2007dfcdd7af.png">  
 
 ### [문제]
-Feign과 hystrix 사용시 첫 요청 시 실패하는 경우가 발생한다.  
+Feign과 hystrix 사용시 요청 시 실패하는 경우가 발생한다.  
 Feign 문제는 아니고 hystrix 때문에 발생하는 문제이다.  
 
 ### [해결]
