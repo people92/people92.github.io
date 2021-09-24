@@ -1,3 +1,13 @@
+---
+layout: post
+title:  "JPA Custom ID Generate + PostgreSQL"
+date:   2021-06-11
+excerpt: "JPA Custom ID Generate + PostgreSQL"
+tag:
+- markdown 
+comments: false
+---
+
 # JPA Custom ID Generate + PostgreSQL
 
 ## 목차
@@ -10,6 +20,8 @@ ___
 ## __개요__
 PostgreSQL과 JPA 적용 중 ID를 커스텀마이징 해서 만들어야 하는 일이 생겼다.  
 이전에 써본 경험이 있는데 그 경험을 토대로 새롭게 적용해보려고 한다.
+
+
 ___
 
 ## __상세__
