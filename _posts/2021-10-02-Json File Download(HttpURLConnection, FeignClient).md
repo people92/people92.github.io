@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "[Java] Json File Download(HttpURLConnection, FeignClient)"
+title:  "Json File Download(HttpURLConnection, FeignClient)"
 date:   2021-10-02
-excerpt: "[Java] Json File Download(HttpURLConnection, FeignClient)"
+excerpt: "Json File Download(HttpURLConnection, FeignClient)"
 tag:
 - markdown 
 comments: false
 ---
 
-# [Java] Json File Download(HttpURLConnection, FeignClient)
+# Json File Download(HttpURLConnection, FeignClient)
 
 ## 목차
 1. HttpURLConnection 이용한 파일 다운로드
