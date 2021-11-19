@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "Feign Clinet 사용중 411 Length Required 에러"
+title:  "Feign Client 사용중 411 Length Required 에러"
 date:   2021-11-18
-excerpt: "Feign Clinet 사용중 411 Length Required 에러"
+excerpt: "Feign Client 사용중 411 Length Required 에러"
 tag:
 - markdown 
 comments: false
 ---
 
 
-# Feign Clinet 사용중 411 "Length Required" 에러
+# Feign Client 사용중 411 "Length Required" 에러
 
 ___
 
