@@ -15,7 +15,7 @@ ___
 
 
 ## __문제__
-Legacy를 MSA로 변환 중 특정 큐를 읽은 후 삭제하는 로직이 있었는데,  
+Legacy를 MSA로 전환 중 특정 큐를 읽은 후 삭제하는 로직이 있었는데,  
 해당 API는 POST 방식의 HTTP 요청이지만 빈 body로 요청을 하는 경우였다.  
 하지만, 그 경우 Feign Client로 호출시 411 "Length Required" 에러가 발생하였다.  
 Content-Length: 0으로 헤더를 세팅해도 동일.
