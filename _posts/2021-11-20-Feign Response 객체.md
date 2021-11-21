@@ -65,6 +65,7 @@ Feign에서 제공해주는 Response 데이터
 
 
 StringDecoder Class를 보면 Body만 가져와 리턴해주고 있다.
+``` Feign.StringDecoder 객체 ```
 ``` java
 public class StringDecoder implements Decoder {
     public StringDecoder() {
