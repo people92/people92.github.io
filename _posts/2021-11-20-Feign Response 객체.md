@@ -25,6 +25,26 @@ ___
 ## __상세__
 
 
+Feign.Response 객체를 FeignClient Interface 리턴 값으로 지정만 해주면  
+Response 객체에서 내가 원하는 HTTP Status, Header를 가져와 처리 할 수 있다.
+
+
+``` java
+@FeignClient(name = "kakao-open-api",
+        url = "https://dapi.kakao.com",
+        configuration = KakaoFeignConfiguration.class,
+        fallbackFactory = KakaoOpenApiClientFallbackFactory.class
+        )
+public interface KakaoOpenApiClient {
+
+    @RequestMapping(method = RequestMethod.GET, value = "/v2/search/web")
+    Response searchResponse(@RequestParam(name = "query") String query);
+}
+
+```
+
+Feign.Response 객체는 아래와 같은 변수들을 가지고 있다.
+
 ``` Feign.Response 객체```
 ``` java
 public final class Response implements Closeable {
@@ -89,9 +109,10 @@ public class StringDecoder implements Decoder {
 ```
 
 
-```결과```
+``` 결과 ```
 
 ```
+
 2021-11-21 20:43:03.110  INFO 16920 --- [           main] com.study.springcloud.FeignService       : status :200
 2021-11-21 20:43:03.114  INFO 16920 --- [           main] com.study.springcloud.FeignService       : headers : {"access-control-allow-headers":["Authorization, KA, Origin, X-Requested-With, Content-Type, Accept"],"access-control-allow-methods":["GET, OPTIONS"],"access-control-allow-origin":["*"],"connection":["keep-alive"],"content-type":["application/json;charset\u003dUTF-8"],"date":["Sun, 21 Nov 2021 11:43:00 GMT"],"server":["nginx"],"transfer-encoding":["chunked"],"vary":["Accept-Encoding"],"x-request-id":["2dec7450-4ac0-11ec-8a91-cf8277894b23"]}
 2021-11-21 20:43:03.115  INFO 16920 --- [           main] com.study.springcloud.FeignService       : body : {"documents":[{"contents":"with lowdown and Markdown.pl Make a static site with find(1), grep(1), and lowdown or Markdown.pl \u003cb\u003essg\u003c/b\u003e is a static site generator written in shell. Optionally it converts Markdown files to HTML with...","datetime":"2018-03-28T23:24:37.000+09:00","title":"Usage","url":"https://www.romanzolotarev.com/ssg.html"},...
@@ -101,6 +122,8 @@ public class StringDecoder implements Decoder {
 2021-11-21 20:43:03.118  INFO 16920 --- [           main] com.study.springcloud.FeignService       : request httpMethod : GET
 
 ```
+
+
 
 ___
 
