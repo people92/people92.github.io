@@ -48,6 +48,7 @@ Feign에서 제공해주는 Response 데이터
 
 실제 Body에 있는 본문 내용만 가져오려면 Feign에서 제공해주는 StringDecoder를 이용하면 쉽게 가져올 수 있다.
 
+
 ``` StringDecoder 사용 예시 ```
 
 ``` java
@@ -65,7 +66,9 @@ Feign에서 제공해주는 Response 데이터
 
 
 StringDecoder Class를 보면 Body만 가져와 리턴해주고 있다.  
+
 ``` Feign.StringDecoder 객체 ```
+
 ``` java
 public class StringDecoder implements Decoder {
     public StringDecoder() {
@@ -87,6 +90,7 @@ public class StringDecoder implements Decoder {
 
 
 ```결과```
+
 ```
 2021-11-21 20:43:03.110  INFO 16920 --- [           main] com.study.springcloud.FeignService       : status :200
 2021-11-21 20:43:03.114  INFO 16920 --- [           main] com.study.springcloud.FeignService       : headers : {"access-control-allow-headers":["Authorization, KA, Origin, X-Requested-With, Content-Type, Accept"],"access-control-allow-methods":["GET, OPTIONS"],"access-control-allow-origin":["*"],"connection":["keep-alive"],"content-type":["application/json;charset\u003dUTF-8"],"date":["Sun, 21 Nov 2021 11:43:00 GMT"],"server":["nginx"],"transfer-encoding":["chunked"],"vary":["Accept-Encoding"],"x-request-id":["2dec7450-4ac0-11ec-8a91-cf8277894b23"]}
@@ -100,5 +104,3 @@ public class StringDecoder implements Decoder {
 
 ___
 
-
-## __참고__
