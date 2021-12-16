@@ -25,6 +25,8 @@ ___
 -> KakaoOpenApiClient에서 KakaoFeignConfiguration가 반영되어야 하지만 KakaoTestConfig가 반영됨.  
    Feign name 별로 Configuration이 설정됨 name 같은 걸로 안하게 주의해야 할듯.
 
+-> FeignClient name이 key라서 configuration도 한개로 정해지는듯 함.
+
 ``` java
 @FeignClient(name = "kakao",
         url = "https://dapi.kakao.com",
