@@ -4,7 +4,7 @@ title:  "Spring Data Envers"
 date:   2021-06-08
 excerpt: "Spring Data Envers"
 tag:
-- markdown 
+- jpa 
 comments: false
 ---
 
