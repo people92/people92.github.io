@@ -4,7 +4,7 @@ title:  "Spring Bean Injection + Factory Method Design Patternd"
 date:   2021-06-26
 excerpt: "Spring Bean Injection + Factory Method Design Pattern"
 tag:
-- markdown 
+- etc 
 comments: true
 ---
 
