@@ -4,7 +4,7 @@ title:  "Linux 환경에서 Jenkins 설치 및 구축"
 date:   2022-03-19
 excerpt: "Linux 환경에서 Jenkins 설치 및 구축"
 tag:
-- markdown 
+- jenkins 
 comments: false
 ---
 
