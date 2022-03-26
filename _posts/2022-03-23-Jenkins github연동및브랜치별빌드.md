@@ -4,7 +4,7 @@ title:  "Jenkins github 연동 및 브랜치 별 빌드"
 date:   2022-03-23
 excerpt: "Jenkins github 연동 및 브랜치 별 빌드"
 tag:
-- markdown 
+- jenkins 
 comments: false
 ---
 
