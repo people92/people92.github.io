@@ -4,7 +4,7 @@ title:  "Json File Download(HttpURLConnection, FeignClient)"
 date:   2021-10-02
 excerpt: "Json File Download(HttpURLConnection, FeignClient)"
 tag:
-- markdown 
+- feign 
 comments: false
 ---
 
