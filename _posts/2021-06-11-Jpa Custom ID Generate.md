@@ -4,7 +4,7 @@ title:  "JPA Custom ID Generate + PostgreSQL"
 date:   2021-06-11
 excerpt: "JPA Custom ID Generate + PostgreSQL"
 tag:
-- markdown 
+- jpa 
 comments: false
 ---
 
