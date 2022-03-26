@@ -4,7 +4,7 @@ title:  "JPA Auditing"
 date:   2021-06-03
 excerpt: "JPA Auditing"
 tag:
-- markdown 
+- jpa 
 comments: false
 ---
 
