@@ -4,7 +4,7 @@ title:  "Feign Configration not working"
 date:   2021-12-15
 excerpt: "Feign Configration not working"
 tag:
-- markdown 
+- feign 
 comments: false
 ---
 
