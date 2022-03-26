@@ -4,7 +4,7 @@ title:  "Linux Command"
 date:   2021-07-11
 excerpt: "자주 쓰는 Linux Command 정리"
 tag:
-- markdown 
+- etc 
 comments: true
 ---
 
