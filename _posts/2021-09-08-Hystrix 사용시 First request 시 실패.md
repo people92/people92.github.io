@@ -4,7 +4,7 @@ title:  "Hystrix 사용시 request 실패"
 date:   2021-09-08
 excerpt: "Hystrix 사용시 request 실패"
 tag:
-- markdown 
+- feign 
 comments: false
 ---
 
