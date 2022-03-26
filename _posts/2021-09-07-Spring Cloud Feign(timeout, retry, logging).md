@@ -4,7 +4,7 @@ title:  "Spring Cloud Feign 추가 (timeout, retry, logging)"
 date:   2021-09-07
 excerpt: "Spring Cloud Feign 추가 (timeout, retry, logging)"
 tag:
-- markdown 
+- feign 
 comments: true
 ---
 
