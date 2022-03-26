@@ -5,7 +5,6 @@ date:   2022-03-26
 excerpt: "Jenkins gradle 빌드 및 에러 해결 방법"
 tag:
 - markdown 
-- jenkins
 comments: false
 ---
 
