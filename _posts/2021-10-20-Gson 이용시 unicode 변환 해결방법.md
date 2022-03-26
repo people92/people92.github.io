@@ -4,7 +4,7 @@ title:  "Gson 이용 시 Unicode 변환 해결 방법"
 date:   2021-10-20
 excerpt: "Gson 이용 시 Unicode 변환 해결 방법"
 tag:
-- markdown 
+- etc 
 comments: false
 ---
 
