@@ -4,7 +4,7 @@ title:  "Spring Cloud Feign retry customize"
 date:   2021-09-09
 excerpt: "Spring Cloud Feign retry customize"
 tag:
-- markdown 
+- feign 
 comments: false
 ---
 
