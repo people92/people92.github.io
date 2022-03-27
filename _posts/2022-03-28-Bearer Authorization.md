@@ -1,0 +1,65 @@
+---
+layout: post
+title:  "Bearer Authorization"
+date:   2022-03-28
+excerpt: "Bearer Authorization"
+tag:
+- etc 
+comments: false
+---
+
+
+# Bearer Authorization
+
+
+## 목차
+1. Token 기반 인증
+2. Bearer 인증
+___
+
+
+## __개요__
+업체 쪽 API를 호출하는데 특정 API 401 Authorized 에러가 갑자기 발생하였다.  
+업체 쪽 환경은 MS Azure를 사용하고 토큰 기반으로 인증을 한다.  
+토큰 생성 API로 토큰을 생성하고 헤더 Authorization에 토큰 값을 담아 API를 호출하는 구조를 가지고 있다.  
+원인은 MS Azure 보안 인증이 강화되어 Bearer 인증 기능이 활성화되었다고 한다.  
+Bearer 인증이 토큰 앞 부분에 "Bearer "만 추가하면 되는데 무엇인지 알아보려고 한다.
+___
+
+## __상세__
+
+### 1. Token 기반 인증
+
+Token 기반 인증은 Session/Cookie 기반 인증 방식을 보완하기 위해 나온 인증 방식인데  
+Session/Cookie 기반 인증 방식은 별도의 저장소를 두기 때문에 DB의 부하가 발생할 수 있다.  
+
+Token 인증 기반 서버에서 특정 API를 사용하려면 Token 발급을 받고   
+해당 토큰을 HTTP Header Authorization에 보내어
+토큰 검증을 통해 이용가능하다.   
+토큰 검증 실패시 401 Authorized 에러 발생
+<img src = "https://user-images.githubusercontent.com/28687900/160305980-790269e8-982c-4ea8-9640-384ebef0a3fd.png">
+
+### 2. Bearer 인증
+Bearer는 토큰 기반 인증에서 토큰 유형을 나타내는 용어.  
+
+```
+# Authorization 구조 
+Authorization : [type] [token]  
+```
+인증 타입 종류에는 여러가지가 있는데 그중 Bearer 타입은   
+Bearer : JWT 혹은 OAuth에 대한 토큰을 사용
+
+
+따라서, Beare 인증 기반을 사용할때는 Header Authorization에 Bearer + " " + 토큰를 담아 넘겨주면 된다.
+
+
+&#8251;
+Authorization 타입으로 'Bearer'를 반드시 명시해야 하며, 'Bearer'와 'Token' 사이에 공백(space)을 빠트리지 않도록 주의한다.
+
+
+
+___
+
+
+## __참고__
+https://coffeewhale.com/kubernetes/authentication/http-auth/2020/05/03/auth02/  
