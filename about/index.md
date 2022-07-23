@@ -5,7 +5,7 @@ date: 2022-02-01
 comments: false
 ---
 
-## 6. 이베이 장보기(-ing)
+## 6. 상품 수집 MSA 개발 (with. 이베이 장보기)
 
 ## 5. 팀 내 자체 배치 플랫폼 구축
 - Jenkins + Spring Batch
